@@ -1,7 +1,11 @@
 {
   "name": "visio-3d",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "author": {
+    "name": "Gökhan Gündüz",
+    "email": "mail@gokhangunduz.com.tr"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

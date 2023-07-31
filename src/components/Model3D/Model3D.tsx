@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef, useMemo, useState } from "react";
+import React, { useRef, useMemo, useState, ReactElement } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-export default function Robot3D() {
-  const [robotModel, setRobotModel] = useState(null);
+export default function Model3D(): ReactElement {
+  const [model, setModel] = useState(null);
 
   useMemo(() => {
     const loader = new GLTFLoader();
@@ -12,11 +12,11 @@ export default function Robot3D() {
     loader.load(
       "/models/range-rover.glb",
       (gltf: any) => {
-        console.log("Robot model loaded:", gltf);
-        setRobotModel(gltf.scene);
+        console.log("Model loaded:", gltf);
+        setModel(gltf.scene);
       },
       (progress: any) => {
-        console.log("Robot model loading progress:", progress);
+        console.log("Model loading progress:", progress);
       },
       (error: any) => {
         console.error("Error loading the 3D model:", error);
@@ -24,9 +24,9 @@ export default function Robot3D() {
     );
   }, []);
 
-  if (!robotModel) {
-    return null;
+  if (!model) {
+    return <></>;
   }
 
-  return <primitive object={robotModel} />;
+  return <primitive object={model} />;
 }
